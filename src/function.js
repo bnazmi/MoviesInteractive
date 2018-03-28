@@ -1,15 +1,17 @@
-var { XMLHttpRequest } = require("xmlhttprequest");
+//  var { XMLHttpRequest } = require("xmlhttprequest");
 
 function makeRequest(url, cb) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      cb(xhr);
+      cb(JSON.parse( xhr.responseText));
     }
   };
   xhr.open("GET", url);
   xhr.send();
 }
+
+const select = (selector) => document.querySelector(selector);
 
 function ticket(xhr, cb){
   //  [ { id: 1, ticket: 'key1' }, { id: 2, ticket: 'key2' } ]
@@ -21,15 +23,24 @@ function ticket(xhr, cb){
 }
 
  
-function filter(xhr,cb){
-    var data = JSON.parse(xhr.responseText);
-    var filter;
-    data.map(function(item){
-      filter=item.id;
-      filter=item.poster_path;
-      filter=item.title;
-    });
-    return cb(filter);
-}
+// function filter(xhr,cb){
+//     var data = JSON.parse(xhr.responseText);
+//     var filter;
+//     data.map(function(item){
+//       filter=item.results.id;
+//       filter=item.results.poster_path;
+//       filter=item.results.title;
+//     });
+//     return cb(filter);
+// }
+
+
 // makeRequest('sdsd' , fultier);
-module.exports = { makeRequest ,ticket ,filter};
+//inas 
+
+
+if (typeof module !== 'undefined') {
+  module.exports = { makeRequest ,ticket ,filter,select};
+}
+
+

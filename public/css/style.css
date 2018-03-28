@@ -1,0 +1,52 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+header {
+
+  
+}
+.fullScreen {
+  background: url('./img/bacground.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+
+.popular{
+overflow: auto;
+ margin: 20px 20px 20px 20px;
+ width: 900px;
+ display: flex;
+ position: absolute;
+ bottom: 138px;
+ left: 188px;
+
+}
+.popular::-webkit-scrollbar { 
+  display: none; 
+}
+.popular img {
+  width: 60px;
+  height: 120px;
+  margin-right: 5px;
+}
+.screen {
+  position: absolute;
+  position: absolute;
+  top: 9px;
+  left: 193px;
+  z-index: 10000;
+}
+iframe{
+  width: 922px;
+  /* height: 520px; */
+  height: 380px;
+}
+/* align-items: center;
+justify-content: center; */
+
+
+
