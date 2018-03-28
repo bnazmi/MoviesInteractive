@@ -2,10 +2,10 @@
   padding: 0;
   margin: 0;
 }
-header {
-
-
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
 }
+
 .fullScreen {
   background: url('./img/bacground.jpg') no-repeat center;
   background-size: cover;
@@ -51,6 +51,11 @@ justify-content: center; */
 body{
   text-align: center;
 }
+.search {
+    position: absolute;
+    left: 229px;
+    top: 602px;
+}
   .search-reasult{
   display: flex;
   flex-wrap: wrap;
@@ -62,36 +67,49 @@ body{
   .mov_list{
   display: block;
   width: 300px;
-  height: 415px;
   text-align: center;
-  background-color: #DCDCDC;
+  background-color: #efefef;;
   margin-top: 20px;
   margin-right: 20px;
 
   }
-  .mov_list h4{
-    font-weight: normal;
+  .mov_list h4,p{
+    font-weight: 600;
+    padding: 5px;
+    font-size: 20px;
   }
 
+  
   .mov_list img{
   width: 300px;
   height: 300px;
   }
+
   input{
-  width:300px;
-  height: 25px;
-  border-radius:2px
+    width: 549px;
+    height: 25px;
+    border-radius: 8px;
+    padding: 4px;
+    border: 0px;
   }
   .search-button{
-  width:300px;
-  height: 30px;
-  border-radius:2px;
+    width: 300px;
+    height: 37px;
+    border-radius: 8px;
+    padding: 4px;
+    border: 0px;
   }
-
+.on-off{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: red;
+    padding: 4px;
+}
   .search-button:hover{
   animation: colouful 3s ease;
   }
   @keyframes colouful{
-  15%{background: #795548;
+  15%{background: #e6e2e1;
 
-  }
+  }}
