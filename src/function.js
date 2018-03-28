@@ -1,53 +1,46 @@
-function makeRequest(url, renderFunction) {
+//  var { XMLHttpRequest } = require("xmlhttprequest");
+
+function makeRequest(url, cb) {
   var xhr = new XMLHttpRequest();
-
   xhr.onreadystatechange = function() {
-
     if (xhr.readyState === 4 && xhr.status === 200) {
-      renderFunction(JSON.parse(xhr.responseText));
-
+      cb(JSON.parse( xhr.responseText));
     }
-  }
-  xhr.open('GET', url);
+  };
+  xhr.open("GET", url);
   xhr.send();
-};
-
+}
 
 const select = (selector) => document.querySelector(selector);
 
-/////////////////////////
-
-var popUrl = "https://api.themoviedb.org/3/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc/550&api_key=5bb2c5fa478415bd431d599cac1bd762";
-
-function displayPop(response) {
-  console.log(response);
-var popularImage;
-  response.results.map(function(repo) {
-    // select('#popular').textContent = repo.id;
-    // select('#popular').textContent += repo.id +' ';
-// http://image.tmdb.org/t/p/w185/mAH97Vj79ZNy8jso27NrVyEIlWv.jpg
-
-    // var token= repo.poster_path;
-    //   var ur="http://image.tmdb.org/t/p/w185/" +token;
-    // select('#popular').textContent += "http://image.tmdb.org/t/p/w185/" + repo.poster_path + ' ';
-     popularImage= "http://image.tmdb.org/t/p/w185/" + repo.poster_path;
-
-     var DOM_img = document.createElement("img");
-     DOM_img.src = popularImage;
-
-      var a=select('#popular');
-     a.appendChild(DOM_img);
-
-
-
-    console.log( popularImage);
-
+function ticket(xhr, cb){
+  //  [ { id: 1, ticket: 'key1' }, { id: 2, ticket: 'key2' } ]
+  var data = JSON.parse(xhr.responseText);
+  var tickets=data.map(function(item){
+    return item.ticket;
   });
+  return cb(tickets);
+}
 
-};
-makeRequest(popUrl, displayPop);
+ 
+// function filter(xhr,cb){
+//     var data = JSON.parse(xhr.responseText);
+//     var filter;
+//     data.map(function(item){
+//       filter=item.results.id;
+//       filter=item.results.poster_path;
+//       filter=item.results.title;
+//     });
+//     return cb(filter);
+// }
+
+
+// makeRequest('sdsd' , fultier);
+//inas 
 
 
 if (typeof module !== 'undefined') {
-  module.exports = makeRequest;
+  module.exports = { makeRequest ,ticket ,filter,select};
 }
+
+
