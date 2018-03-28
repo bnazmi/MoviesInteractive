@@ -4,7 +4,7 @@
 }
 header {
 
-  
+
 }
 .fullScreen {
   background: url('./img/bacground.jpg') no-repeat center;
@@ -25,8 +25,8 @@ overflow: auto;
  left: 188px;
 
 }
-.popular::-webkit-scrollbar { 
-  display: none; 
+.popular::-webkit-scrollbar {
+  display: none;
 }
 .popular img {
   width: 60px;
@@ -48,5 +48,50 @@ iframe{
 /* align-items: center;
 justify-content: center; */
 
+body{
+  text-align: center;
+}
+  .search-reasult{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
 
+  }
+
+  .mov_list{
+  display: block;
+  width: 300px;
+  height: 415px;
+  text-align: center;
+  background-color: #DCDCDC;
+  margin-top: 20px;
+  margin-right: 20px;
+
+  }
+  .mov_list h4{
+    font-weight: normal;
+  }
+
+  .mov_list img{
+  width: 300px;
+  height: 300px;
+  }
+  input{
+  width:300px;
+  height: 25px;
+  border-radius:2px
+  }
+  .search-button{
+  width:300px;
+  height: 30px;
+  border-radius:2px;
+  }
+
+  .search-button:hover{
+  animation: colouful 3s ease;
+  }
+  @keyframes colouful{
+  15%{background: #795548;
+
+  }
